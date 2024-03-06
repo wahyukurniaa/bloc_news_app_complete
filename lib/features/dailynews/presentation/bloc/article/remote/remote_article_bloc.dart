@@ -13,6 +13,7 @@ class RemoteArticleBloc extends Bloc<RemoteArticleEvent, RemoteArticleState> {
   RemoteArticleBloc(this._getArticleUseCase)
       : super(const RemoteArticleLoading()) {
     on<GetArticle>(onGetArticles);
+    on<FetchRemoteArticles>(_onFetchRemoteArticles);
     // on<>();
     // on<>();
   }
@@ -25,5 +26,10 @@ class RemoteArticleBloc extends Bloc<RemoteArticleEvent, RemoteArticleState> {
     if (dataState is DataFailed) {
       emit(RemoteArticleError(dataState.error!));
     }
+  }
+
+  void _onFetchRemoteArticles(
+      FetchRemoteArticles event, Emitter<RemoteArticleState> emit) async {
+    add(const GetArticle());
   }
 }

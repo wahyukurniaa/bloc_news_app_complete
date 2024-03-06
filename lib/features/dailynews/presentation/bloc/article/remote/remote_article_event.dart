@@ -7,3 +7,5 @@ sealed class RemoteArticleEvent {
 class GetArticle extends RemoteArticleEvent {
   const GetArticle();
 }
+
+class FetchRemoteArticles extends RemoteArticleEvent {}
