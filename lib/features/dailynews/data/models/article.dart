@@ -1,26 +1,36 @@
+import 'package:bloc_newsapp_complete/core/constants/constants.dart';
 import 'package:bloc_newsapp_complete/features/dailynews/domain/entities/article.dart';
 
 class ArticleModel extends ArticleEntity {
+  final String? author;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? urlToImage;
+  final String? publishedAt;
+  final String? content;
+
   const ArticleModel({
-    int? id,
-    String? author,
-    String? title,
-    String? description,
-    String? url,
-    String? urlToImage,
-    String? publishedAt,
-    String? content,
+    this.author,
+    this.title,
+    this.description,
+    this.url,
+    this.urlToImage,
+    this.publishedAt,
+    this.content,
   });
 
-  factory ArticleModel.fromJson(Map<String, dynamic> map) {
+  factory ArticleModel.fromJson(Map<String, dynamic> json) {
     return ArticleModel(
-      author: map['author'] ?? "",
-      title: map['title'] ?? "",
-      description: map['description'] ?? "",
-      url: map['url'] ?? "",
-      urlToImage: map['urlToImage'] ?? "",
-      publishedAt: map['publishedAt'] ?? "",
-      content: map['content'] ?? "",
+      author: json['author'] ?? "",
+      title: json['title'] ?? "",
+      description: json['description'] ?? "",
+      url: json['url'] ?? "",
+      urlToImage: json['urlToImage'] != null && json['urlToImage'] != ""
+          ? json['urlToImage']
+          : kDefaultImage,
+      publishedAt: json['publishedAt'] ?? "",
+      content: json['content'] ?? "",
     );
   }
 }

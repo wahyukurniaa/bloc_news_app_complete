@@ -22,9 +22,9 @@ class _NewsApiService implements NewsApiService {
 
   @override
   Future<HttpResponse<List<ArticleModel>>> getNewsArticles({
-    String? apiKey,
-    String? country,
-    String? category,
+    apiKey,
+    country,
+    category,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
