@@ -2,23 +2,25 @@ import 'package:bloc_newsapp_complete/core/constants/constants.dart';
 import 'package:bloc_newsapp_complete/features/dailynews/domain/entities/article.dart';
 
 class ArticleModel extends ArticleEntity {
-  final String? author;
-  final String? title;
-  final String? description;
-  final String? url;
-  final String? urlToImage;
-  final String? publishedAt;
-  final String? content;
-
   const ArticleModel({
-    this.author,
-    this.title,
-    this.description,
-    this.url,
-    this.urlToImage,
-    this.publishedAt,
-    this.content,
-  });
+    int? id,
+    String? author,
+    String? title,
+    String? description,
+    String? url,
+    String? urlToImage,
+    String? publishedAt,
+    String? content,
+  }) : super(
+          id: id,
+          author: author,
+          title: title,
+          description: description,
+          url: url,
+          urlToImage: urlToImage,
+          publishedAt: publishedAt,
+          content: content,
+        );
 
   factory ArticleModel.fromJson(Map<String, dynamic> json) {
     return ArticleModel(
